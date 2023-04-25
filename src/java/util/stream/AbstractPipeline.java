@@ -223,15 +223,15 @@ abstract class AbstractPipeline<E_IN, E_OUT, S extends BaseStream<E_OUT, S>>
      * @param terminalOp the terminal operation to be applied to the pipeline.
      * @return the result
      */
-    final <R> R evaluate(TerminalOp<E_OUT, R> terminalOp) {//这里的terminalOp是一个TerminalOpImpl，它是一个终止操作，它的evaluate方法是一个抽象方法，需要子类实现，这里的子类是ForEachOps.ForEachTask，这里的符号R是Void,E_OUT是Integer，所以这里的terminalOp是ForEachOps.ForEachTask
+    final <R> R evaluate(TerminalOp<E_OUT, R> terminalOp) {//注释：这里的terminalOp是一个TerminalOpImpl，它是一个终止操作，它的evaluate方法是一个抽象方法，需要子类实现，这里的子类是ForEachOps.ForEachTask，这里的符号R是Void,E_OUT是Integer，所以这里的terminalOp是ForEachOps.ForEachTask
         assert getOutputShape() == terminalOp.inputShape();
-        if (linkedOrConsumed)//如果已经被消费过了，就抛出异常
+        if (linkedOrConsumed)//注释：如果已经被消费过了，就抛出异常
             throw new IllegalStateException(MSG_STREAM_LINKED);
         linkedOrConsumed = true;
 
         return isParallel()
                ? terminalOp.evaluateParallel(this, sourceSpliterator(terminalOp.getOpFlags()))
-               : terminalOp.evaluateSequential(this, sourceSpliterator(terminalOp.getOpFlags()));//这里的terminalOp是ForEachOps.ForEachTask，它的evaluateSequential方法是一个抽象方法，需要子类实现，这里的子类是ForEachOps.ForEachTask，这里的符号R是Void,E_OUT是Integer，所以这里的terminalOp是ForEachOps.ForEachTask
+               : terminalOp.evaluateSequential(this, sourceSpliterator(terminalOp.getOpFlags()));//注释：这里的terminalOp是ForEachOps.ForEachTask，它的evaluateSequential方法是一个抽象方法，需要子类实现，这里的子类是ForEachOps.ForEachTask，这里的符号R是Void,E_OUT是Integer，所以这里的terminalOp是ForEachOps.ForEachTask
     }
 
     /**

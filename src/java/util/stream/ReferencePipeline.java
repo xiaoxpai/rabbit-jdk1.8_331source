@@ -414,8 +414,8 @@ abstract class ReferencePipeline<P_IN, P_OUT>
     // Terminal operations from Stream
 
     @Override
-    public void forEach(Consumer<? super P_OUT> action) {//这里的action是一个Consumer，是一个函数式接口，只有一个抽象方法accept,这里的accept方法就是我们自己定义的方法,这里的符号::是方法引用的语法糖，表示调用action的accept方法，这里的? super P_OUT表示action的参数类型是P_OUT的父类
-        evaluate(ForEachOps.makeRef(action, false));//这里的ForEachOps是一个静态内部类，makeRef方法是一个静态方法，返回一个ForEachOps实例，这里的ForEachOps实例是一个Sink，Sink是一个函数式接口，只有一个抽象方法accept，这里的accept方法就是我们自己定义的方法，这里的? super P_OUT表示action的参数类型是P_OUT的父类
+    public void forEach(Consumer<? super P_OUT> action) {//注释：这里的action是一个Consumer，是一个函数式接口，只有一个抽象方法accept,这里的accept方法就是我们自己定义的方法,这里的符号::是方法引用的语法糖，表示调用action的accept方法，这里的? super P_OUT表示action的参数类型是P_OUT的父类
+        evaluate(ForEachOps.makeRef(action, false));//注释：这里的ForEachOps是一个静态内部类，makeRef方法是一个静态方法，返回一个ForEachOps实例，这里的ForEachOps实例是一个Sink，Sink是一个函数式接口，只有一个抽象方法accept，这里的accept方法就是我们自己定义的方法，这里的? super P_OUT表示action的参数类型是P_OUT的父类
     }
 
     @Override

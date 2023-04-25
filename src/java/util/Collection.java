@@ -578,7 +578,7 @@ public interface Collection<E> extends Iterable<E> {
      * @since 1.8
      */
     default Stream<E> stream() {
-        return StreamSupport.stream(spliterator(), false);//false表示顺序流，true表示并行流,默认是顺序流,顺序流和并行流的区别在于底层的迭代器不同,顺序流的迭代器是Iterator,并行流的迭代器是Spliterator,,顺序流的迭代器是单线程的,并行流的迭代器是多线程的
+        return StreamSupport.stream(spliterator(), false); //注释：false表示顺序流，true表示并行流,默认是顺序流,顺序流和并行流的区别在于底层的迭代器不同,顺序流的迭代器是Iterator,并行流的迭代器是Spliterator,,顺序流的迭代器是单线程的,并行流的迭代器是多线程的
     }
 
     /**

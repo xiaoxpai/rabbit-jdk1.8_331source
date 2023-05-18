@@ -9,19 +9,19 @@ import java.sql.DriverManager;
 import java.util.logging.Logger;
 
 /**
- * JDk源码中的单例模式
+ * JDK源码中的单例模式
  * @author Alex
  */
 public class Test {
     public static void main(String[] args) {
       //单例模式
-        // Runtime
+        //1. Runtime
 
 
-        // System
+        // 2.System
 
 
-       // Logger
+       //3. Logger
 
         /*
 private static final LoggerBundle SYSTEM_BUNDLE = new LoggerBundle(SYSTEM_LOGGER_RB_NAME, null);
@@ -32,11 +32,11 @@ private static final LoggerBundle NO_RESOURCE_BUNDLE = new LoggerBundle(null, nu
          */
 
 
-//        DriverManager
+//       4. DriverManager
 
 
 
-        //URLClassLoader
+        //5.URLClassLoader
         /*
 
     public static URLClassLoader newInstance(final URL[] urls,

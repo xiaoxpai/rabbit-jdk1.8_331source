@@ -89,7 +89,7 @@ public class DriverManager {
     // Used in println() to synchronize logWriter
     private final static  Object logSync = new Object();
 
-    /* Prevent the DriverManager class from being instantiated. */
+    /* Prevent the DriverManager class from being instantiated. Alex commit:防止 DriverManager 类被实例化 */
     private DriverManager(){}
 
 
